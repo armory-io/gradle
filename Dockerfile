@@ -1,4 +1,4 @@
-FROM frekele/java:jdk8 
+FROM frekele/java:jdk8
 
 MAINTAINER Isaac Mosquera <isaac@armory.io>
 
@@ -17,16 +17,13 @@ RUN wget --no-check-certificate --no-cookies https://downloads.gradle.org/distri
 
 # Add executables to path
 RUN update-alternatives --install "/usr/bin/gradle" "gradle" "/opt/gradle/bin/gradle" 1 && \
-    update-alternatives --set "gradle" "/opt/gradle/bin/gradle" 
+    update-alternatives --set "gradle" "/opt/gradle/bin/gradle"
 
 # Create .gradle folder
 RUN mkdir -p $GRADLE_FOLDER
 
 # Mark as volume
 VOLUME  $GRADLE_FOLDER
-
-# Add the files
-ADD rootfs /
 
 # Change to root folder
 WORKDIR /root
