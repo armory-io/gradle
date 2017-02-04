@@ -26,4 +26,7 @@ RUN mkdir -p $GRADLE_FOLDER
 VOLUME  $GRADLE_FOLDER
 
 # Change to root folder
-WORKDIR /root
+WORKDIR /app
+
+ENTRYPOINT ["gradle"]
+CMD ["-version"]
